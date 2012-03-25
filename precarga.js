@@ -26,8 +26,14 @@ var fps = 60;
 
 var keyboard = new KeyboardListener(); // gadgets.js
 var cargando = new BarraProgeso("#FFFFFF"); // gadgets.js
+var mensaje = new Mensaje('Cargando...', '#FFFFFF', null); // gadgets.js
 
-cargando.x = 100;
-cargando.y = 100;
+cargando.x = 1005/2-108/2;
+cargando.y = 500/2-18/2;
 cargando.valor = 100;
 cargando.actualizar();
+
+mensaje.x = cargando.x - 10;
+mensaje.y = cargando.y - 50;
+mensaje.actualizar();
+

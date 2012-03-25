@@ -78,3 +78,29 @@ function BarraProgeso(color) {
   screen.stroke();
  };
 }
+
+// Clase Mensaje. Implementa un mensaje para mostar al usuario en canvas.
+function Mensaje(texto, colorTexto, colorFondo) {
+ // Propiedades.
+ this.x = 0; this.y = 0; // Coordenadas en el canvas de la esquina superior izquierda.
+ this.texto = texto;
+ this.color = colorTexto;
+ this.fondo = colorFondo;
+
+ // Métodos.
+ this.actualizar = function() { // Dibujar mensaje en pantalla.
+  // Fondo.
+  if (this.fondo != null) {
+   screen.fillStyle = this.fondo;
+   for (i = 0, x = this.x; i < this.texto.length; i++, x+=15) {
+    screen.fillRect(x, this.y, 16, 27);
+   }
+  }
+
+  // Texto.
+  screen.font = "bold 22px verdana";
+  screen.fillStyle = this.color;
+  screen.textBaseline = 'top';
+  screen.fillText(this.texto, this.x, this.y);
+ };
+}
