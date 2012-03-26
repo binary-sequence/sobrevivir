@@ -22,11 +22,12 @@ along with Sobrevivir.  If not, see <http://www.gnu.org/licenses/>.
 function Main() {
  // Propiedades.
  this.estado = 'precarga';
+ this.licencia = new licenciaGPL(gplv3);
 
  // Métodos.
  this.actualizar = function() {
   if (this.estado == 'precarga') {
-   if (totalImagenes == imagenesCargadas) this.estado = 'licencia';
+   if (totalImagenes == imagenesCargadas) this.estado = 'licenciaGPL';
    cargando.x = 1005/2-108/2;
    cargando.y = 500/2-18/2;
    cargando.valor = imagenesCargadas / totalImagenes * 100;
@@ -34,7 +35,12 @@ function Main() {
    mensaje.x = cargando.x - 10;
    mensaje.y = cargando.y - 50;
    mensaje.actualizar();
-  } else if (this.estado == 'licencia') {
+  } else if (this.estado == 'licenciaGPL') {
+   this.licencia.mostrar();
+   if (teclado.getPressed() != null) {
+    this.estado = 'licenciaTerceros';
+   }
+  } else if (this.estado == 'licenciaTerceros') {
    clearInterval(mainLoop);
   }
  };
