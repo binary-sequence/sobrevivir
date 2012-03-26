@@ -24,7 +24,7 @@ var screen = gameScreen.getContext('2d');
 
 var fps = 60;
 
-var keyboard = new KeyboardListener(); // Ver en gadgets.js
+var teclado = new KeyboardListener(); // Ver en gadgets.js
 var cargando = new BarraProgeso("#FFFFFF"); // Ver en gadgets.js
 var mensaje = new Mensaje('Cargando...', '#FFFFFF', null); // Ver en gadgets.js
 
@@ -37,4 +37,14 @@ totalImagenes++;
 
 var mainLoop = null;
 var main = new Main(); // Ver en main.js
+
+// Asignación de eventos.
+function contextMenu() { return false; }
+function load() { mainLoop = setInterval('main.actualizar();', 1000/fps); }
+
+var body = document.getElementById("body");
+body.oncontextmenu = contextMenu;
+body.onload = load;
+body.onkeydown = teclado.listenKeydown;
+body.onkeyup = teclado.listenKeyup;
 
