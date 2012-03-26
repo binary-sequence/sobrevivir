@@ -44,7 +44,5 @@ function load() { mainLoop = setInterval('main.actualizar();', 1000/fps); }
 
 var body = document.getElementById("body");
 body.oncontextmenu = contextMenu;
-body.onkeydown = teclado.listenKeydown;
-body.onkeyup = teclado.listenKeyup;
 body.onload = load;
 
