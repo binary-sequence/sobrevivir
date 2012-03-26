@@ -36,6 +36,8 @@ var tempLicenciaTerceros = new Image(); tempLicenciaTerceros.src = 'licenciaTerc
 totalImagenes++;
 var fondoMenu = new Image(); fondoMenu.src = 'menu/fondo.png'; fondoMenu.onload = function() { imagenesCargadas++; }
 totalImagenes++;
+var animacionMenu = new Image(); animacionMenu.src = 'menu/arbol_200x200x3.png';  animacionMenu.onload = function() { imagenesCargadas++; }
+totalImagenes++;
 
 var mainLoop = null;
 var main = new Main(); // Ver en main.js

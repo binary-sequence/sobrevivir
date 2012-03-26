@@ -22,11 +22,21 @@ along with Sobrevivir.  If not, see <http://www.gnu.org/licenses/>.
 function Menu() {
  // Propiedades.
  this.fondo = fondoMenu;
-// this.animacion = new Animacion();
+ this.animacion = new Animacion(animacionMenu, 200, 200, 3);
+ this.retardo = 0;
 
  // Métodos.
  this.actualizar = function() {
   screen.drawImage(this.fondo, 0, 0);
+
+  this.animacion.x = 50;
+  this.animacion.y = 100;
+  this.retardo++;
+  if (this.retardo > 10) {
+   this.animacion.avanzar();
+   this.retardo = 0;
+  }
+  this.animacion.actualizar();
  };
 }
 
