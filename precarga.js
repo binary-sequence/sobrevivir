@@ -30,19 +30,14 @@ var mensaje = new Mensaje('Cargando...', '#FFFFFF', null); // Ver en gadgets.js
 
 // Precarga de imágenes.
 var imagenesCargadas = 0; var totalImagenes = 0;
-var gplv3 = new Image();
-gplv3.src = 'licencia/gplv3-127x51.png';
-gplv3.onload = function() { imagenesCargadas++; };
+var gplv3 = new Image(); gplv3.src = 'licencia/gplv3-127x51.png'; gplv3.onload = function() { imagenesCargadas++; };
 totalImagenes++;
 
 var mainLoop = null;
 var main = new Main(); // Ver en main.js
 
 // Asignación de eventos.
-function contextMenu() { return false; }
-function load() { mainLoop = setInterval('main.actualizar();', 1000/fps); }
-
 var body = document.getElementById("body");
-body.oncontextmenu = contextMenu;
-body.onload = load;
+body.oncontextmenu = function() { return false; };
+body.onload = function() { mainLoop = setInterval('main.actualizar();', 1000/fps); };
 
