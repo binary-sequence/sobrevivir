@@ -35,12 +35,21 @@ function Main() {
    mensaje.x = cargando.x - 10;
    mensaje.y = cargando.y - 50;
    mensaje.actualizar();
+
   } else if (this.estado == 'licenciaGPL') {
    this.licencia.mostrar();
-   if (teclado.getPressed() != null) this.estado = 'licenciaTerceros';
+   if (teclado.getPressed() != null){
+    this.estado = 'licenciaTerceros';
+    teclado.keychar = null;
+   }
+
   } else if (this.estado == 'licenciaTerceros') {
    screen.drawImage(tempLicenciaTerceros, 0, 0);
-   if (teclado.getPressed() != null) this.estado = 'menu';
+   if (teclado.getPressed() != null) {
+    this.estado = 'menu';
+    teclado.keychar = null;
+   }
+
   } else if (this.estado == 'menu') {
    clearInterval(mainLoop); alert('ya');
   }
