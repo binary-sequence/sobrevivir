@@ -23,6 +23,7 @@ function Main() {
  // Propiedades.
  this.estado = 'precarga';
  this.licencia = new licenciaGPL(gplv3);
+ this.menu = new Menu();
 
  // Métodos.
  this.actualizar = function() {
@@ -51,7 +52,15 @@ function Main() {
    }
 
   } else if (this.estado == 'menu') {
-   clearInterval(mainLoop); alert('ya');
+   this.menu.actualizar();
+   if (teclado.getPressed() == 'A') {
+    this.estado = 'juego';
+    teclado.keychar = null;
+   }
+
+  } else if (this.estado = 'juego') {
+   clearInterval(mainLoop);
+   alert('ya');
   }
  };
 }

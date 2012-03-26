@@ -34,6 +34,8 @@ var gplv3 = new Image(); gplv3.src = 'licencia/gplv3-127x51.png'; gplv3.onload =
 totalImagenes++;
 var tempLicenciaTerceros = new Image(); tempLicenciaTerceros.src = 'licenciaTerceros/tempLicenciaTerceros.png'; tempLicenciaTerceros.onload = function() { imagenesCargadas++; };
 totalImagenes++;
+var fondoMenu = new Image(); fondoMenu.src = 'menu/fondo.png'; fondoMenu.onload = function() { imagenesCargadas++; }
+totalImagenes++;
 
 var mainLoop = null;
 var main = new Main(); // Ver en main.js
