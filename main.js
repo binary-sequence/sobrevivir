@@ -18,23 +18,25 @@ along with Sobrevivir.  If not, see <http://www.gnu.org/licenses/>.
 
 */
 
-// Variables globales.
-var gameScreen = document.getElementById('gameScreen'); gameScreen.width = 1005; gameScreen.height = 500;
-var screen = gameScreen.getContext('2d');
+// Clase Main. Encargada de gestionar todas las operaciones de la aplicación.
+function Main() {
+ // Propiedades.
+ this.estado = 'precarga';
 
-var fps = 60;
-
-var keyboard = new KeyboardListener(); // Ver en gadgets.js
-var cargando = new BarraProgeso("#FFFFFF"); // Ver en gadgets.js
-var mensaje = new Mensaje('Cargando...', '#FFFFFF', null); // Ver en gadgets.js
-
-// Precarga de imágenes.
-var imagenesCargadas = 0; var totalImagenes = 0;
-var gplv3 = new Image();
-gplv3.src = 'licencia/gplv3-127x51.png';
-gplv3.onload = function() { imagenesCargadas++; };
-totalImagenes++;
-
-var mainLoop = null;
-var main = new Main(); // Ver en main.js
+ // Métodos.
+ this.actualizar = function() {
+  if (this.estado == 'precarga') {
+   if (totalImagenes == imagenesCargadas) this.estado = 'licencia';
+   cargando.x = 1005/2-108/2;
+   cargando.y = 500/2-18/2;
+   cargando.valor = imagenesCargadas / totalImagenes * 100;
+   cargando.actualizar();
+   mensaje.x = cargando.x - 10;
+   mensaje.y = cargando.y - 50;
+   mensaje.actualizar();
+  } else if (this.estado == 'licencia') {
+   clearInterval(mainLoop);
+  }
+ };
+}
 

@@ -4,9 +4,10 @@
   <meta charset="UTF-8">
   <link rel="stylesheet" href="sobrevivir.css">
  </head>
- <body oncontextmenu="return false;" onkeydown="keyboard.listenKeydown(event);" onkeyup="keyboard.listenKeyup(event);">
+ <body oncontextmenu="return false;" onkeydown="keyboard.listenKeydown(event);" onkeyup="keyboard.listenKeyup(event);" onload="mainLoop = setInterval('main.actualizar();', 1000/fps);">
   <canvas id="gameScreen">Este software, "Sobrevivir", funciona mediante el elemento canvas de html5.<br> Si estás viendo este menaje significa que tu navegador web no es compatible con canvas. Utiliza un navegador compatible.</canvas>
  </body>
  <script src="gadgets.js"></script>
+ <script src="main.js"></script>
  <script src="precarga.js"></script>
 </html>
