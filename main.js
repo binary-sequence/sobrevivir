@@ -37,11 +37,12 @@ function Main() {
    mensaje.actualizar();
   } else if (this.estado == 'licenciaGPL') {
    this.licencia.mostrar();
-   if (teclado.getPressed() != null) {
-    this.estado = 'licenciaTerceros';
-   }
+   if (teclado.getPressed() != null) this.estado = 'licenciaTerceros';
   } else if (this.estado == 'licenciaTerceros') {
-   clearInterval(mainLoop);
+   screen.drawImage(tempLicenciaTerceros, 0, 0);
+   if (teclado.getPressed() != null) this.estado = 'menu';
+  } else if (this.estado == 'menu') {
+   clearInterval(mainLoop); alert('ya');
   }
  };
 }
